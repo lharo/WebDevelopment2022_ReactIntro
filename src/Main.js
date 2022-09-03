@@ -1,21 +1,21 @@
-// rafc React Functional Component
-// rafce React Functional Component + Export
-import React from 'react';
-import { FirstComponents } from './componenets/FirstComponents';
+import React, { useState } from 'react';
+import { AddCounter } from './componenets/AddCounter';
+import { ShowCounter } from './componenets/ShowCounter';
 
 import './styles.css'
-// const myVariable = 'This is a var'
 export const Main = () => {
-    
-    // Can only return one item
-    return (
-        // <>
-        //     <ShowCounter number={5}/>
-        //     <AddCounter number={5}/>
-        // </>
-        <FirstComponents 
-            title="Mi titulo"
-            // subtitle="Hola"
-        />
+
+  const [number, setNumber] = useState(0);
+  const onAdd = () => {
+    setNumber( number + 1);
+    console.log('I added one ');
+  }
+
+  return (
+    <>
+      <ShowCounter number={number}/>
+      <AddCounter onAddPress={onAdd}/>
+      {/* RemoveCounter onRemovePress */}
+    </>
   );
 };
